@@ -123,6 +123,11 @@ class TC_Database < Test::Unit::TestCase
     assert_nothing_raised { @db.prepare( "foo" ) }
   end
 
+  def test_enable_load_extension
+    assert_nothing_raised { @db.enable_load_extension(1) }
+    assert_nothing_raised { @db.enable_load_extension(0) }
+  end
+
   def test_prepare_with_block
     called = false
     # any_instance fails here...

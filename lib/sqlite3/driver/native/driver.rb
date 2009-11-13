@@ -213,6 +213,8 @@ module SQLite3 ; module Driver ; module Native
     api_delegate :result_null
     api_delegate :result_value
     api_delegate :aggregate_context
+    api_delegate :enable_load_extension
+    api_delegate :load_extension
 
   end
 

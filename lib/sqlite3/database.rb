@@ -151,6 +151,25 @@ module SQLite3
       Error.check( result, self )
     end
 
+    # Enable or disable extension loading so as not to open security holes 
+    # in older applications that are unprepared to deal with extension loading,
+    # and as a means of disabling extension loading while evaluating
+    # user-entered SQL. Extension loading is off by default.
+    def enable_load_extension(onoff=0)
+    	result = @driver.enable_load_extension( @handle, onoff )
+	Error.check( result, self )
+    end
+
+    # Loads an SQLite extension library from the named file. Extension loading
+    # must be enabled using enable_load_extension() prior to calling this API,
+    # otherwise an error will be returned. If an error occurs and pzErrMsg is 
+    # not 0, the interface shall attempt to fill pzErrMsg with the error 
+    # message.
+    def load_extension( zFile, zProc=nil, pzErrMsg=nil )
+    	result = @driver.load_extension( @handle, zFile, zProc, pzErrMsg )
+	Error.check( result, self, pzErrMsg )
+    end
+
     # Returns a Statement object representing the given SQL. This does not
     # execute the statement; it merely prepares the statement for execution.
     #

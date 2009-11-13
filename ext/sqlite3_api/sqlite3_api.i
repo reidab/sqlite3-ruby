@@ -360,3 +360,6 @@ void sqlite3_result_text16be(sqlite3_context*,const void* utf16,int,void(*free)(
 void sqlite3_result_value(sqlite3_context*,sqlite3_value*);
 
 VALUE *sqlite3_aggregate_context(sqlite3_context*,int data_size);
+
+int sqlite3_enable_load_extension(sqlite3*, int);
+int sqlite3_load_extension(sqlite3 *,const char *,const char *,char **);
