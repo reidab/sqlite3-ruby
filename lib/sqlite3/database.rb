@@ -157,7 +157,7 @@ module SQLite3
     # user-entered SQL. Extension loading is off by default.
     def enable_load_extension(onoff=0)
     	result = @driver.enable_load_extension( @handle, onoff )
-	Error.check( result, self )
+      Error.check( result, self )
     end
 
     # Loads an SQLite extension library from the named file. Extension loading
@@ -167,7 +167,7 @@ module SQLite3
     # message.
     def load_extension( zFile, zProc=nil, pzErrMsg=nil )
     	result = @driver.load_extension( @handle, zFile, zProc, pzErrMsg )
-	Error.check( result, self, pzErrMsg )
+      Error.check( result, self, pzErrMsg )
     end
 
     # Returns a Statement object representing the given SQL. This does not
